@@ -8,4 +8,3 @@ C:\Users\Pardeep Kaur Gill\source\repos\CareerCloud\CareerCloud.DataAccessLayer\
 C:\Users\Pardeep Kaur Gill\source\repos\CareerCloud\CareerCloud.DataAccessLayer\obj\Debug\netcoreapp3.0\CareerCloud.DataAccessLayer.AssemblyInfo.cs
 C:\Users\Pardeep Kaur Gill\source\repos\CareerCloud\CareerCloud.DataAccessLayer\obj\Debug\netcoreapp3.0\CareerCloud.DataAccessLayer.dll
 C:\Users\Pardeep Kaur Gill\source\repos\CareerCloud\CareerCloud.DataAccessLayer\obj\Debug\netcoreapp3.0\CareerCloud.DataAccessLayer.pdb
-C:\Users\Pardeep Kaur Gill\source\repos\CareerCloud\CareerCloud.DataAccessLayer\obj\Debug\netcoreapp3.0\CareerCloud.DataAccessLayer.csprojAssemblyReference.cache

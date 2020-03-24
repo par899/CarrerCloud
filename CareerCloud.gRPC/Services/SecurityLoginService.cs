@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.gRPC.Services
 {
-    public class SecurityLoginService:SecurityLoginBase
+    public class SecurityLoginService
     {
         public SecurityLoginService()
         { 

@@ -1,0 +1,3 @@
+obj\Debug\netcoreapp3.1/SecurityLoginsRole.cs \
+obj\Debug\netcoreapp3.1/SecurityLoginsRoleGrpc.cs: C:/Users/Pardeep Kaur Gill/.nuget/packages/grpc.tools/2.27.0/build/native/include/google/protobuf/empty.proto\
+ Protos/SecurityLoginsRole.proto

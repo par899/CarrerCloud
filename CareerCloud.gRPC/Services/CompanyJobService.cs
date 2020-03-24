@@ -54,7 +54,7 @@ namespace CareerCloud.gRPC.Services
         {
             CompanyJobPoco poco = new CompanyJobPoco()
             {
-                d = Guid.Parse(payload.Id),
+                Id = Guid.Parse(payload.Id),
                 Company = Guid.Parse(payload.Company),
                 ProfileCreated = payload.ProfileCreated.ToDateTime(),
                 IsInactive = payload.IsInactive,

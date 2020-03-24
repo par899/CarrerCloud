@@ -10,7 +10,7 @@ service SystemLanguageCode{
 	rpc DeleteSystemLanguageCode(SystemLanguageCodePayload) returns (google.protobuf.Empty);
 }
 message IdRequestLanguageCode{
-	string LanguageID==1;
+	string LanguageID=1;
 }
 message SystemLanguageCodePayload{
 		string LanguageID=1;

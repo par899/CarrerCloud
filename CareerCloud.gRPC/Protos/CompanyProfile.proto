@@ -18,5 +18,5 @@ message CompanyProfilePayload{
         string CompanyWebsite=3;
         string ContactPhone=4;
         string ContactName=5;
-		bytestring CompanyLogo=6;
+		bytes CompanyLogo=6;
 }
