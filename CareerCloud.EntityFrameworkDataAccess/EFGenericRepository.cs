@@ -14,9 +14,13 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
         public EFGenericRepository( )
         {
-            _context = new CareerCloudContext();
+            //_context = new CareerCloudContext();
+            DbContextOptions<CareerCloudContext> options = new DbContextOptions<CareerCloudContext>();
+            _context = new CareerCloudContext(options);
 
         }
+        
+
         public void Add(params T[] items)
         {
             foreach(T item in items)

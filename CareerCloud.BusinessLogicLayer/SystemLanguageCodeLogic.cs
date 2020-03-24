@@ -14,7 +14,7 @@ namespace CareerCloud.BusinessLogicLayer
         {
             _repository = repository;
         }
-        protected virtual void Verify(SystemLanguageCodePoco[] pocos)
+        protected  void Verify(SystemLanguageCodePoco[] pocos)
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             foreach (SystemLanguageCodePoco poco in pocos)
@@ -38,20 +38,23 @@ namespace CareerCloud.BusinessLogicLayer
             }
             return;
         }
-        
-        public void Get()
-        { }
-        public virtual List<SystemLanguageCodePoco> GetAll()
+
+        public  SystemLanguageCodePoco Get(string id)
+        {
+            return _repository.GetSingle(c => c.LanguageID== id);
+        }
+        public  List<SystemLanguageCodePoco> GetAll()
         {
             return _repository.GetAll().ToList();
         }
-        public virtual void Add(SystemLanguageCodePoco[] pocos)
+        public  void Add(SystemLanguageCodePoco[] pocos)
         {
-              _repository.Add(pocos);
             Verify(pocos);
+            _repository.Add(pocos);
+           
             
         }
-        public virtual void Update(SystemLanguageCodePoco[] pocos)
+        public  void Update(SystemLanguageCodePoco[] pocos)
         {
             _repository.Update(pocos);
             Verify(pocos);

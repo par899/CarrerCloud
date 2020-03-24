@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace CareerCloud.BusinessLogicLayer
 {
-    public class CompanyProfileLogic:BaseLogic<CompanyProfilePoco>
+    public class CompanyProfileLogic : BaseLogic<CompanyProfilePoco>
     {
         public CompanyProfileLogic(IDataRepository<CompanyProfilePoco> repository) : base(repository)
         { }
@@ -20,40 +20,54 @@ namespace CareerCloud.BusinessLogicLayer
                 string[] requiredWebsiteExtensions = new string[] { ".ca", ".com", ".biz" };
                 if (string.IsNullOrEmpty(poco.CompanyWebsite))
                 {
-                    exceptions.Add(new ValidationException(600, $"Valid Website must end with following extensions-.ca,.com,.biz"));
+                    exceptions.Add(new ValidationException(600, 
+                        $"Valid Website must end with following extensions-.ca,.com,.biz"));
                 }
                 else if (!requiredWebsiteExtensions.Any(t => poco.CompanyWebsite.Contains(t)))
                 {
-                    exceptions.Add(new ValidationException(600,$"Valid Website must end with following extensions-.ca,.com,.biz"));
+                    exceptions.Add(new ValidationException(600, 
+                        $"Valid Website must end with following extensions-.ca,.com,.biz"));
                 }
-                if (string.IsNullOrEmpty(poco.ContactPhone))
+                /* if (string.IsNullOrEmpty(poco.ContactPhone))
+                 {
+                     exceptions.Add(new ValidationException(601, $"Phone number have "));
+                 }
+                 else
+                 {
+                     string[] phoneComponents = poco.ContactPhone.Split('-');
+                     if (phoneComponents.Length != 3)
+                     {
+                         exceptions.Add(new ValidationException(601,
+                             $"Must Corrospond to valid phone number(e.g 416-555-1234)"));
+                     }
+                     else
+                     {
+                         if (phoneComponents[0].Length != 3)
+                         {
+                             exceptions.Add(new ValidationException(601,
+                                 $"Must Corrospond to valid phone number(e.g 416-555-1234)"));
+                         }
+                         else if (phoneComponents[1].Length != 3)
+                         {
+                             exceptions.Add(new ValidationException(601, 
+                                 $"Must Corrospond to valid phone number(e.g 416-555-1234)"));
+                         }
+                         else if (phoneComponents[0].Length != 4)
+                         {
+                             exceptions.Add(new ValidationException(601,
+                                 $"Must Corrospond to valid phone number(e.g 416-555-1234)"));
+                         }
+                     }*/
+                if (string.IsNullOrEmpty(poco.ContactPhone) ||
+              !Regex.IsMatch(poco.ContactPhone, @"^\s*[0-9]{3}\s*-\s*[0-9]{3}\s*-\s*[0-9]{4}\s*$")
+             )
                 {
-                    exceptions.Add(new ValidationException(601,$"Phone number have "));
+                    exceptions.Add(new ValidationException(601,
+                       "ContactPhone Must correspond to a valid phone number(e.g. 416 - 555 - 1234)"));
                 }
-                else
-                {
-                    string[] phoneComponents = poco.ContactPhone.Split('-');
-                    if (phoneComponents.Length != 3)
-                    {
-                        exceptions.Add(new ValidationException(601,$"Must Corrospond to valid phone number(e.g 416-555-1234)"));
-                    }
-                    else
-                    {
-                        if (phoneComponents[0].Length != 3)
-                        {
-                            exceptions.Add(new ValidationException(601,$"Must Corrospond to valid phone number(e.g 416-555-1234)"));
-                        }
-                        else if (phoneComponents[1].Length != 3)
-                        {
-                            exceptions.Add(new ValidationException(601,$"Must Corrospond to valid phone number(e.g 416-555-1234)"));
-                        }
-                        else if (phoneComponents[0].Length != 4)
-                        {
-                            exceptions.Add(new ValidationException(601,$"Must Corrospond to valid phone number(e.g 416-555-1234)"));
-                        }
-                    }
 
-                }
+
+
             }
             if (exceptions.Count > 0)
             {
